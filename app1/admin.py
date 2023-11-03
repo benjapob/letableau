@@ -5,51 +5,36 @@ from .models import *
 
 
 class ProductoAdmin(admin.ModelAdmin):
-    list_display = [
-        "nombre",
-    ]
+    pass
 
 
-class MesaAdmin(admin.ModelAdmin):
-    list_display = [
-        "nombre",
-    ]
-
-
-class ReservaAdmin(admin.ModelAdmin):
-    list_display = [
-        "nombre",
-    ]
-
-
-class ClienteAdmin(admin.ModelAdmin):
-    list_display = [
-        "nombre",
-    ]
+class PlatoAdmin(admin.ModelAdmin):
+    pass
 
 
 class SucursalAdmin(admin.ModelAdmin):
-    list_display = [
-        "nombre",
-    ]
+    pass
+
+
+class MesaAdmin(admin.ModelAdmin):
+    pass
+
+
+class ReservaAdmin(admin.ModelAdmin):
+    pass
 
 
 class VentaAdmin(admin.ModelAdmin):
-    list_display = [
-        "nombre",
-    ]
+    pass
 
 
 class StockAdmin(admin.ModelAdmin):
-    list_display = [
-        "nombre",
-    ]
+    pass
 
 
 admin.site.register(Producto, ProductoAdmin)
 admin.site.register(Mesa, MesaAdmin)
 admin.site.register(Venta, VentaAdmin)
 admin.site.register(Sucursal, SucursalAdmin)
-admin.site.register(Cliente, ClienteAdmin)
 admin.site.register(Reserva, ReservaAdmin)
 admin.site.register(StockSucursal, StockAdmin)

@@ -7,7 +7,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Food and Restorent One page Template</title>
+        <title>Le tableau - Index</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -35,71 +35,7 @@
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 		<div class='preloader'><div class='loaded'>&nbsp;</div></div>
-        <header id="home" class="navbar-fixed-top">
-            <div class="header_top_menu clearfix">	
-                <div class="container">
-                    <div class="row">	
-                        <div class="col-md-5 col-md-offset-3 col-sm-12 text-right">
-                            <div class="call_us_text">
-								<a href=""><i class="fa fa-clock-o"></i> Order Foods 24/7</a>
-								<a href=""><i class="fa fa-phone"></i>061 9876 5432</a>
-							</div>
-                        </div>
-
-                        <div class="col-md-4 col-sm-12">
-                            <div class="head_top_social text-right">
-                                <a href=""><i class="fa fa-facebook"></i></a>
-                                <a href=""><i class="fa fa-google-plus"></i></a>
-                                <a href=""><i class="fa fa-twitter"></i></a>
-                                <a href=""><i class="fa fa-linkedin"></i></a>
-                                <a href=""><i class="fa fa-pinterest-p"></i></a>
-                                <a href=""><i class="fa fa-youtube"></i></a>
-                                <a href=""><i class="fa fa-phone"></i></a>
-                                <a href=""><i class="fa fa-camera"></i></a>
-                            </div>	
-                        </div>
-
-                    </div>			
-                </div>
-            </div>
-
-            <!-- End navbar-collapse-->
-
-            <div class="main_menu_bg">
-                <div class="container"> 
-                    <div class="row">
-                        <nav class="navbar navbar-default">
-                            <div class="container-fluid">
-                                <!-- Brand and toggle get grouped for better mobile display -->
-                                <div class="navbar-header">
-                                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                                        <span class="sr-only">Toggle navigation</span>
-                                        <span class="icon-bar"></span>
-                                        <span class="icon-bar"></span>
-                                        <span class="icon-bar"></span>
-                                    </button>
-                                    <a class="navbar-brand our_logo" href="#"><img src="{% static 'assets/images/logo.png'%}" alt="" /></a>
-                                </div>
-
-                                <!-- Collect the nav links, forms, and other content for toggling -->
-                                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
-                                    <ul class="nav navbar-nav navbar-right">
-                                        <li><a href="#slider">Home</a></li>
-                                        <li><a href="#abouts">Menu</a></li>
-                                        <li><a href="#features">Features</a></li>
-                                        <li><a href="#portfolio">Delivery</a></li>
-                                        <li><a href="#ourPakeg">News</a></li>
-                                        <li><a href="#mobaileapps">Pages</a></li>
-                                        <li><a href="#" class="booking">Table Booking</a></li>
-                                    </ul>
-                                </div><!-- /.navbar-collapse -->
-                            </div><!-- /.container-fluid -->
-                        </nav>
-                    </div>
-                </div>
-            </div>	
-        </header> <!-- End Header Section -->
+        {% include 'nav.html' %}
 
         <section id="slider" class="slider">
             <div class="slider_overlay">
@@ -108,9 +44,9 @@
                         <div class="main_slider text-center">
                             <div class="col-md-12">
                                 <div class="main_slider_content wow zoomIn" data-wow-duration="1s">
-                                    <h1>Foody Love</h1>
-                                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi. </p>
-                                    <button href="" class="btn-lg">Click here</button>
+                                    <h1>Le tableau</h1>
+                                    <p>¡Bienvenidos a "Le Tableau"! Nuestro restaurante es un oasis de sabor y elegancia en el corazón de la ciudad. Ofrecemos una experiencia culinaria única, con platos artísticos y sabores excepcionales que te sorprenderán en cada bocado. Ven y disfruta de una deliciosa comida en un ambiente acogedor y sofisticado en "Le Tableau". </p>
+                                    <button href="" class="btn-lg">Haz click aqui</button>
                                 </div>
                             </div>	
                         </div>
@@ -132,13 +68,15 @@
 
                         <div class="col-md-6">
                             <div class="single_abouts_text wow slideInRight" data-wow-duration="1s">
-                                <h4>About us</h4>
-                                <h3>WE ARE TASTY</h3>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's stan</p>
+                                <h4>Sobre nosotros</h4>
+                                <h3>Nuestras Delicias</h3>
+                                <p>En "Le Tableau," nos enorgullece ser un refugio gastronómico donde la pasión por la comida se encuentra con la elegancia.</p>
 
-                                <p>dard dummy text ever since the 1500s,when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesettingdard dummy text ever since the 1500s,when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting</p>
+                                <p>Nuestro equipo de chefs apasionados trabaja incansablemente para crear platos que son verdaderas obras maestras de sabor y presentación.
 
-                                <a href="" class="btn btn-primary">click here</a>
+                                    Cada ingrediente que utilizamos es seleccionado con cuidado, y cada plato que servimos refleja nuestra dedicación a la excelencia culinaria. En "Le Tableau," no solo servimos comida, creamos experiencias culinarias memorables.</p>
+
+                                <a href="" class="btn btn-primary">click aqui</a>
                             </div>
                         </div>
                     </div>
@@ -155,12 +93,12 @@
                                 <div class="main_features_content text-left">
                                     <div class="col-md-6">
                                         <div class="single_features_text">
-                                            <h4>Special Recipes</h4>
-                                            <h3>Taste of Precious</h3>
-                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's stan</p>
-                                            <p>dard dummy text ever since the 1500s,when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesettingdard dummy text ever since the 1500s,when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting</p>
+                                            <h4>Recetas Especiales</h4>
+                                            <h3>Sabores Exoticos</h3>
+                                            <p>La creatividad culinaria se une a ingredientes exquisitos para ofrecer una experiencia gastronómica única. Platos de sabor inigualable, preparados con pasión y presentados con elegancia. Descubre un mundo de sabores en "Le Tableau" que deleitarán tus sentidos.</p>
+                                            <p>"En "Le Tableau," te invitamos a descubrir sabores exóticos que te transportarán a lugares lejanos con cada plato. Nuestros chefs expertos han seleccionado ingredientes de todo el mundo para crear una experiencia culinaria única. Desde picantes currys hasta suaves ceviches, cada bocado es una aventura en "Le Tableau." Ven y disfruta de un viaje de sabores exóticos que estimularán tus sentidos en cada comida."</p>
 
-                                            <a href="" class="btn btn-primary">click here</a>
+                                            <a href="" class="btn btn-primary">click aqui</a>
                                         </div>
                                     </div>
                                 </div>
@@ -177,73 +115,73 @@
                     <div class="portfolio_content text-center  wow fadeIn" data-wow-duration="5s">
                         <div class="col-md-12">
                             <div class="head_title text-center">
-                                <h4>Delightful</h4>
-                                <h3>Experience</h3>
+                                <h4>Lo más pedido</h4>
+                                <h3>Experiencias</h3>
                             </div>
 
                             <div class="main_portfolio_content">
                                 <div class="col-md-3 col-sm-4 col-xs-6 single_portfolio_text">
                                     <img src="{% static 'assets/images/p1.png'%}" alt="" />
                                     <div class="portfolio_images_overlay text-center">
-                                        <h6>Italian Source Mushroom</h6>
-                                        <p class="product_price">$12</p>
-                                        <a href="" class="btn btn-primary">Click here</a>
+                                        <h6>Ramen</h6>
+                                        <p class="product_price">$12.000</p>
+                                        <a href="" class="btn btn-primary">Click aqui</a>
                                     </div>
                                 </div>
                                 <div class="col-md-3 col-sm-4 col-xs-6 single_portfolio_text">
                                     <img src="{% static 'assets/images/p2.png'%}" alt="" />
                                     <div class="portfolio_images_overlay text-center">
-                                        <h6>Italian Source Mushroom</h6>
-                                        <p class="product_price">$12</p>
-                                        <a href="" class="btn btn-primary">Click here</a>
+                                        <h6>Citricos a la carne</h6>
+                                        <p class="product_price">$12.000</p>
+                                        <a href="" class="btn btn-primary">Click aqui</a>
                                     </div>								
                                 </div>
                                 <div class="col-md-3 col-sm-4 col-xs-6 single_portfolio_text">
                                     <img src="{% static 'assets/images/p3.png'%}" alt="" />
                                     <div class="portfolio_images_overlay text-center">
-                                        <h6>Italian Source Mushroom</h6>
-                                        <p class="product_price">$12</p>
-                                        <a href="" class="btn btn-primary">Click here</a>
+                                        <h6>Pollo asa2</h6>
+                                        <p class="product_price">$9.000</p>
+                                        <a href="" class="btn btn-primary">Click aqui</a>
                                     </div>								
                                 </div>
                                 <div class="col-md-3 col-sm-4 col-xs-6 single_portfolio_text">
                                     <img src="{% static 'assets/images/p4.png'%}" alt="" />
                                     <div class="portfolio_images_overlay text-center">
-                                        <h6>Italian Source Mushroom</h6>
-                                        <p class="product_price">$12</p>
-                                        <a href="" class="btn btn-primary">Click here</a>
+                                        <h6>Canelones rellenos</h6>
+                                        <p class="product_price">$6.000</p>
+                                        <a href="" class="btn btn-primary">Click aqui</a>
                                     </div>								
                                 </div>
                                 <div class="col-md-3 col-sm-4 col-xs-6 single_portfolio_text">
                                     <img src="{% static 'assets/images/p5.png'%}" alt="" />
                                     <div class="portfolio_images_overlay text-center">
-                                        <h6>Italian Source Mushroom</h6>
-                                        <p class="product_price">$12</p>
-                                        <a href="" class="btn btn-primary">Click here</a>
+                                        <h6>Gohan de carne</h6>
+                                        <p class="product_price">$10.000</p>
+                                        <a href="" class="btn btn-primary">Click aqui</a>
                                     </div>								
                                 </div>
                                 <div class="col-md-3 col-sm-4 col-xs-6 single_portfolio_text">
                                     <img src="{% static 'assets/images/p6.png'%}" alt="" />
                                     <div class="portfolio_images_overlay text-center">
-                                        <h6>Italian Source Mushroom</h6>
-                                        <p class="product_price">$12</p>
-                                        <a href="" class="btn btn-primary">Click here</a>
+                                        <h6>Ravioles con salsa blanca</h6>
+                                        <p class="product_price">$6.000</p>
+                                        <a href="" class="btn btn-primary">Click aqui</a>
                                     </div>								
                                 </div>
                                 <div class="col-md-3 col-sm-4 col-xs-6 single_portfolio_text">
                                     <img src="{% static 'assets/images/p7.png'%}" alt="" />
                                     <div class="portfolio_images_overlay text-center">
-                                        <h6>Italian Source Mushroom</h6>
+                                        <h6>Todas las que probo el Diego</h6>
                                         <p class="product_price">$12</p>
-                                        <a href="" class="btn btn-primary">Click here</a>
+                                        <a href="" class="btn btn-primary">Click aqui</a>
                                     </div>								
                                 </div>
                                 <div class="col-md-3 col-sm-4 col-xs-6 single_portfolio_text">
                                     <img src="{% static 'assets/images/p8.png'%}" alt="" />
                                     <div class="portfolio_images_overlay text-center">
-                                        <h6>Italian Source Mushroom</h6>
-                                        <p class="product_price">$12</p>
-                                        <a href="" class="btn btn-primary">Click here</a>
+                                        <h6>Pollo a la plancha</h6>
+                                        <p class="product_price">$5.000</p>
+                                        <a href="" class="btn btn-primary">Click aqui</a>
                                     </div>								
                                 </div>
                             </div>
@@ -258,69 +196,70 @@
                 <div class="main_pakeg_content">
                     <div class="row">
                         <div class="head_title text-center">
-                            <h4>Amazing</h4>
-                            <h3>Delicious</h3>
+                            <h4>Asombrosa</h4>
+                            <h3>Deliciosa</h3>
                         </div>
 
                         <div class="single_pakeg_one text-right wow rotateInDownRight">
                             <div class="col-md-6 col-md-offset-6 col-sm-8 col-sm-offset-4">
                                 <div class="single_pakeg_text">
                                     <div class="pakeg_title">
-                                        <h4>Drinks</h4>
+                                        <h4>Vinos</h4>
                                     </div>
 
                                     <ul>
-                                        <li> Tuna Roast Source........................................................$24.5 </li>
-                                        <li> Tuna Roast Source........................................................$24.5 </li>
-                                        <li> Tuna Roast Source........................................................$24.5 </li>
-                                        <li> Tuna Roast Source........................................................$24.5 </li>
-                                        <li> Tuna Roast Source........................................................$24.5 </li>
+                                        <li> Vino Malbec argentino......................................................$12.500</li>
+                                        <li> Vino Sauvignon chileno........................................................$10.800</li>
+                                        <li> Vino Shiraz australiano....................................................$13.500</li>
+                                        <li> Vino Cabernet francés........................................................$14.300</li>
+                                        <li> Vino Merlot italiano.......................................................$11.700</li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
 
                         <div class="single_pakeg_two text-left wow rotateInDownLeft">
-                            <div class="col-md-6 col-sm-8">
-                                <div class="single_pakeg_text">
-                                    <div class="pakeg_title">
-                                        <h4>Main course </h4>
-                                    </div>
+    <div class="col-md-6 col-sm-8">
+        <div class="single_pakeg_text">
+            <div class="pakeg_title">
+                <h4>Platos principales</h4>
+            </div>
 
-                                    <ul>
-                                        <li> Tuna Roast Source........................................................$24.5 </li>
-                                        <li> Tuna Roast Source........................................................$24.5 </li>
-                                        <li> Tuna Roast Source........................................................$24.5 </li>
-                                        <li> Tuna Roast Source........................................................$24.5 </li>
-                                        <li> Tuna Roast Source........................................................$24.5 </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+            <ul>
+                <li> Salmón a la Parrilla..........................................$12.500 </li>
+                <li> Lomo de Res..................................................$12.500 </li>
+                <li> Pasta Alfredo de Pollo.................................$12.500 </li>
+                <li> Salteado de Verduras.....................................$12.500 </li>
+                <li> Camarones al Ajillo.......................................$12.500 </li>
+            </ul>
+        </div>
+    </div>
+</div>
 
                         <div class="single_pakeg_three text-left wow rotateInDownRight">
                             <div class="col-md-6 col-md-offset-6 col-sm-8 col-sm-offset-4">
                                 <div class="single_pakeg_text">
                                     <div class="pakeg_title">
-                                        <h4>Desserts</h4>
+                                        <h4>Postres</h4>
                                     </div>
-
+                        
                                     <ul>
-                                        <li> Tuna Roast Source........................................................$24.5 </li>
-                                        <li> Tuna Roast Source........................................................$24.5 </li>
-                                        <li> Tuna Roast Source........................................................$24.5 </li>
-                                        <li> Tuna Roast Source........................................................$24.5 </li>
-                                        <li> Tuna Roast Source........................................................$24.5 </li>
+                                        <li> Torta de Chocolate.......................................$7.800 </li>
+                                        <li> Tiramisú......................................................$7.800 </li>
+                                        <li> Cheesecake.............................................$7.800 </li>
+                                        <li> Tarta de Frutas.........................................$7.800 </li>
+                                        <li> Sundae de Helado.....................................$7.800 </li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
+                        
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="mobaileapps" class="mobailapps">
+        <!-- <section id="mobaileapps" class="mobailapps">
             <div class="slider_overlay">
                 <div class="container">
                     <div class="row">
@@ -330,9 +269,9 @@
                             </div>
                             <div class="col-md-7 col-sm-12">
                                 <div class="single_monail_apps_text">
-                                    <h4> Happy to Announce </h4>
-                                    <h1>Mobile App <span>is Available in every OS platform.</span></h1>
-
+                                    <h4> Felices de Anunciar </h4>
+                                    <h1>Le tablApp <span>disponible en todas las plataformas.</span></h1>
+        
                                     <a href=""><img src="{% static 'assets/images/google.png'%}" alt="" /></a>
                                     <a href=""><img src="{% static 'assets/images/apps.png'%}" alt="" /></a>
                                 </div>
@@ -341,101 +280,10 @@
                     </div>
                 </div>
             </div>
-        </section>
-
-        <section id="footer_widget" class="footer_widget">
-            <div class="container">
-                <div class="row">
-                    <div class="footer_widget_content text-center">
-                        <div class="col-md-4">
-                            <div class="single_widget wow fadeIn" data-wow-duration="2s">
-                                <h3>Take it easy with location</h3>
-
-                                <div class="single_widget_info">
-                                    <p>112-Legere ancillae vix ne.
-
-                                        <span>Te elit putent propriae eum,</span>
-                                        <span>aliquip nominati</span>
-                                        <span class="phone_email">phone: 00 000 000</span>
-                                        <span>Email: support@templatemela.com</span></p>
-                                </div>
-
-                                <div class="footer_socail_icon">
-                                    <a href=""><i class="fa fa-facebook"></i></a>
-                                    <a href=""><i class="fa fa-google-plus"></i></a>
-                                    <a href=""><i class="fa fa-twitter"></i></a>
-                                    <a href=""><i class="fa fa-linkedin"></i></a>
-                                    <a href=""><i class="fa fa-pinterest-p"></i></a>
-                                    <a href=""><i class="fa fa-youtube"></i></a>
-                                    <a href=""><i class="fa fa-phone"></i></a>
-                                    <a href=""><i class="fa fa-camera"></i></a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4">
-                            <div class="single_widget wow fadeIn" data-wow-duration="4s">
-                                <h3>Take it easy with location</h3>
-
-                                <div class="single_widget_info">
-                                    <p><span class="date_day">Monday To Friday</span>
-                                        <span>8:00am to 10:00pm(Breakfast)</span>
-                                        <span>11:00am to 10:00pm(Lunch/Diner)</span>
-
-                                        <span class="date_day">Saturday & Sunday</span>
-                                        <span>10:00am to 11:00pm(Brunch)</span>
-                                        <span>11:00am to 12:00pm(Lunch/Dinner)</span></p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4">
-                            <div class="single_widget wow fadeIn" data-wow-duration="5s">
-                                <h3>Take it easy with location</h3>
-
-                                <div class="single_widget_form text-left">
-                                    <form action="#" id="formid">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" name="name" placeholder="first name" required="">
-                                        </div>
-
-                                        <div class="form-group">
-                                            <input type="email" class="form-control" name="email" placeholder="Email" required="">
-                                        </div>
-
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Subject">
-                                        </div> <!-- end of form-group -->
-
-                                        <div class="form-group">
-                                            <textarea class="form-control" name="message" rows="3" placeholder="Message"></textarea>
-                                        </div>
-
-                                        <input type="submit" value="click here" class="btn btn-primary">
-                                    </form>	
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-
-        <!--Footer-->
-        <footer id="footer" class="footer">
-            <div class="container text-center">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="copyright wow zoomIn" data-wow-duration="3s">
-							<p>Made with <i class="fa fa-heart"></i> by <a href="http://bootstrapthemes.co">Bootstrap Themes</a>2016. All Rights Reserved</p>
-						</div>
-                    </div>
-                </div>
-            </div>
-        </footer>
-		
+        </section> -->
+        
+        {% include 'footer.html' %}
+        		
 		<div class="scrollup">
 			<a href="#"><i class="fa fa-chevron-up"></i></a>
 		</div>		
