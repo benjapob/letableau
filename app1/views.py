@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import *
 
 # Create your views here.
 
@@ -8,7 +9,18 @@ def index(request):
 
 
 def menu(request):
-    return render(request, "menu.html")
+    fondos = Plato.objects.filter(tipo=1)
+    vinos = Plato.objects.filter(tipo=2)
+    postres = Plato.objects.filter(tipo=3)
+    return render(
+        request,
+        "menu.html",
+        {
+            "fondos": fondos,
+            "vinos": vinos,
+            "postres": postres,
+        },
+    )
 
 
 def login(request):
@@ -28,4 +40,4 @@ def booking(request):
 
 
 def contact(request):
-    return render(request, "letableauTemplate/contact.html")
+    return render(request, "contact.html")

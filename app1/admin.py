@@ -33,6 +33,7 @@ class StockAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Producto, ProductoAdmin)
+admin.site.register(Plato, PlatoAdmin)
 admin.site.register(Mesa, MesaAdmin)
 admin.site.register(Venta, VentaAdmin)
 admin.site.register(Sucursal, SucursalAdmin)

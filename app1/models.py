@@ -17,6 +17,9 @@ class Producto(models.Model):
     def __str__(self):
         return self.nombre
 
+    class Meta:
+        verbose_name_plural = "Productos"
+
 
 class Plato(models.Model):
     nombre = models.CharField(max_length=50)
@@ -36,6 +39,9 @@ class Sucursal(models.Model):
 
     def __str__(self):
         return f"{self.nombre} - {self.direccion}"
+
+    class Meta:
+        verbose_name_plural = "Sucursales"
 
 
 class Mesa(models.Model):

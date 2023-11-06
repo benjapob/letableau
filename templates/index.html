@@ -1,40 +1,5 @@
 {%load static%}
-<!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Le tableau - Index</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
-        <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css'%}">
-        <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="{% static 'assets/css/font-awesome.min.css'%}">
-        <!--        <link rel="stylesheet" href="assets/css/bootstrap-theme.min.css">-->
-
-
-        <!--For Plugins external css-->
-        <link rel="stylesheet" href="{% static 'assets/css/animate/animate.css'%}" />
-        <link rel="stylesheet" href="{% static 'assets/css/plugins.css'%}" />
-
-        <!--Theme custom css -->
-        <link rel="stylesheet" href="{% static 'assets/css/style.css'%}">
-
-        <!--Theme Responsive css-->
-        <link rel="stylesheet" href="{% static 'assets/css/responsive.css'%}" />
-
-        <script src="{% static 'assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js'%}"></script>
-    </head>
-    <body>
-        <!--[if lt IE 8]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-		<div class='preloader'><div class='loaded'>&nbsp;</div></div>
         {% include 'nav.html' %}
 
         <section id="slider" class="slider">
@@ -44,9 +9,9 @@
                         <div class="main_slider text-center">
                             <div class="col-md-12">
                                 <div class="main_slider_content wow zoomIn" data-wow-duration="1s">
-                                    <h1>Le tableau</h1>
+                                    <h1>Le Tableau</h1>
                                     <p>¡Bienvenidos a "Le Tableau"! Nuestro restaurante es un oasis de sabor y elegancia en el corazón de la ciudad. Ofrecemos una experiencia culinaria única, con platos artísticos y sabores excepcionales que te sorprenderán en cada bocado. Ven y disfruta de una deliciosa comida en un ambiente acogedor y sofisticado en "Le Tableau". </p>
-                                    <button href="" class="btn-lg">Haz click aqui</button>
+                                    <button href="/booking" class="btn-lg">Reserva tu mesa</button>
                                 </div>
                             </div>	
                         </div>
@@ -56,58 +21,6 @@
             </div>
         </section>
 
-        <section id="abouts" class="abouts">
-            <div class="container">
-                <div class="row">
-                    <div class="abouts_content">
-                        <div class="col-md-6">
-                            <div class="single_abouts_text text-center wow slideInLeft" data-wow-duration="1s">
-                                <img src="{% static 'assets/images/ab.png'%}" alt="" />
-                            </div>
-                        </div>
-
-                        <div class="col-md-6">
-                            <div class="single_abouts_text wow slideInRight" data-wow-duration="1s">
-                                <h4>Sobre nosotros</h4>
-                                <h3>Nuestras Delicias</h3>
-                                <p>En "Le Tableau," nos enorgullece ser un refugio gastronómico donde la pasión por la comida se encuentra con la elegancia.</p>
-
-                                <p>Nuestro equipo de chefs apasionados trabaja incansablemente para crear platos que son verdaderas obras maestras de sabor y presentación.
-
-                                    Cada ingrediente que utilizamos es seleccionado con cuidado, y cada plato que servimos refleja nuestra dedicación a la excelencia culinaria. En "Le Tableau," no solo servimos comida, creamos experiencias culinarias memorables.</p>
-
-                                <a href="" class="btn btn-primary">click aqui</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="features" class="features">
-            <div class="slider_overlay">
-                <div class="container">
-                    <div class="row">
-                        <div class="main_features_content_area  wow fadeIn" data-wow-duration="3s">
-                            <div class="col-md-12">
-                                <div class="main_features_content text-left">
-                                    <div class="col-md-6">
-                                        <div class="single_features_text">
-                                            <h4>Recetas Especiales</h4>
-                                            <h3>Sabores Exoticos</h3>
-                                            <p>La creatividad culinaria se une a ingredientes exquisitos para ofrecer una experiencia gastronómica única. Platos de sabor inigualable, preparados con pasión y presentados con elegancia. Descubre un mundo de sabores en "Le Tableau" que deleitarán tus sentidos.</p>
-                                            <p>"En "Le Tableau," te invitamos a descubrir sabores exóticos que te transportarán a lugares lejanos con cada plato. Nuestros chefs expertos han seleccionado ingredientes de todo el mundo para crear una experiencia culinaria única. Desde picantes currys hasta suaves ceviches, cada bocado es una aventura en "Le Tableau." Ven y disfruta de un viaje de sabores exóticos que estimularán tus sentidos en cada comida."</p>
-
-                                            <a href="" class="btn btn-primary">click aqui</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
         <section id="portfolio" class="portfolio">
             <div class="container">
@@ -125,7 +38,7 @@
                                     <div class="portfolio_images_overlay text-center">
                                         <h6>Ramen</h6>
                                         <p class="product_price">$12.000</p>
-                                        <a href="" class="btn btn-primary">Click aqui</a>
+                                        <a href="/menu" class="btn btn-primary">Click aqui</a>
                                     </div>
                                 </div>
                                 <div class="col-md-3 col-sm-4 col-xs-6 single_portfolio_text">
@@ -133,7 +46,7 @@
                                     <div class="portfolio_images_overlay text-center">
                                         <h6>Citricos a la carne</h6>
                                         <p class="product_price">$12.000</p>
-                                        <a href="" class="btn btn-primary">Click aqui</a>
+                                        <a href="/menu" class="btn btn-primary">Click aqui</a>
                                     </div>								
                                 </div>
                                 <div class="col-md-3 col-sm-4 col-xs-6 single_portfolio_text">
@@ -141,7 +54,7 @@
                                     <div class="portfolio_images_overlay text-center">
                                         <h6>Pollo asa2</h6>
                                         <p class="product_price">$9.000</p>
-                                        <a href="" class="btn btn-primary">Click aqui</a>
+                                        <a href="/menu" class="btn btn-primary">Click aqui</a>
                                     </div>								
                                 </div>
                                 <div class="col-md-3 col-sm-4 col-xs-6 single_portfolio_text">
@@ -149,7 +62,7 @@
                                     <div class="portfolio_images_overlay text-center">
                                         <h6>Canelones rellenos</h6>
                                         <p class="product_price">$6.000</p>
-                                        <a href="" class="btn btn-primary">Click aqui</a>
+                                        <a href="/menu" class="btn btn-primary">Click aqui</a>
                                     </div>								
                                 </div>
                                 <div class="col-md-3 col-sm-4 col-xs-6 single_portfolio_text">
@@ -157,7 +70,7 @@
                                     <div class="portfolio_images_overlay text-center">
                                         <h6>Gohan de carne</h6>
                                         <p class="product_price">$10.000</p>
-                                        <a href="" class="btn btn-primary">Click aqui</a>
+                                        <a href="/menu" class="btn btn-primary">Click aqui</a>
                                     </div>								
                                 </div>
                                 <div class="col-md-3 col-sm-4 col-xs-6 single_portfolio_text">
@@ -165,7 +78,7 @@
                                     <div class="portfolio_images_overlay text-center">
                                         <h6>Ravioles con salsa blanca</h6>
                                         <p class="product_price">$6.000</p>
-                                        <a href="" class="btn btn-primary">Click aqui</a>
+                                        <a href="/menu" class="btn btn-primary">Click aqui</a>
                                     </div>								
                                 </div>
                                 <div class="col-md-3 col-sm-4 col-xs-6 single_portfolio_text">
@@ -173,7 +86,7 @@
                                     <div class="portfolio_images_overlay text-center">
                                         <h6>Todas las que probo el Diego</h6>
                                         <p class="product_price">$12</p>
-                                        <a href="" class="btn btn-primary">Click aqui</a>
+                                        <a href="/menu" class="btn btn-primary">Click aqui</a>
                                     </div>								
                                 </div>
                                 <div class="col-md-3 col-sm-4 col-xs-6 single_portfolio_text">
@@ -181,79 +94,11 @@
                                     <div class="portfolio_images_overlay text-center">
                                         <h6>Pollo a la plancha</h6>
                                         <p class="product_price">$5.000</p>
-                                        <a href="" class="btn btn-primary">Click aqui</a>
+                                        <a href="/menu" class="btn btn-primary">Click aqui</a>
                                     </div>								
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="ourPakeg" class="ourPakeg">
-            <div class="container">
-                <div class="main_pakeg_content">
-                    <div class="row">
-                        <div class="head_title text-center">
-                            <h4>Asombrosa</h4>
-                            <h3>Deliciosa</h3>
-                        </div>
-
-                        <div class="single_pakeg_one text-right wow rotateInDownRight">
-                            <div class="col-md-6 col-md-offset-6 col-sm-8 col-sm-offset-4">
-                                <div class="single_pakeg_text">
-                                    <div class="pakeg_title">
-                                        <h4>Vinos</h4>
-                                    </div>
-
-                                    <ul>
-                                        <li> Vino Malbec argentino......................................................$12.500</li>
-                                        <li> Vino Sauvignon chileno........................................................$10.800</li>
-                                        <li> Vino Shiraz australiano....................................................$13.500</li>
-                                        <li> Vino Cabernet francés........................................................$14.300</li>
-                                        <li> Vino Merlot italiano.......................................................$11.700</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="single_pakeg_two text-left wow rotateInDownLeft">
-    <div class="col-md-6 col-sm-8">
-        <div class="single_pakeg_text">
-            <div class="pakeg_title">
-                <h4>Platos principales</h4>
-            </div>
-
-            <ul>
-                <li> Salmón a la Parrilla..........................................$12.500 </li>
-                <li> Lomo de Res..................................................$12.500 </li>
-                <li> Pasta Alfredo de Pollo.................................$12.500 </li>
-                <li> Salteado de Verduras.....................................$12.500 </li>
-                <li> Camarones al Ajillo.......................................$12.500 </li>
-            </ul>
-        </div>
-    </div>
-</div>
-
-                        <div class="single_pakeg_three text-left wow rotateInDownRight">
-                            <div class="col-md-6 col-md-offset-6 col-sm-8 col-sm-offset-4">
-                                <div class="single_pakeg_text">
-                                    <div class="pakeg_title">
-                                        <h4>Postres</h4>
-                                    </div>
-                        
-                                    <ul>
-                                        <li> Torta de Chocolate.......................................$7.800 </li>
-                                        <li> Tiramisú......................................................$7.800 </li>
-                                        <li> Cheesecake.............................................$7.800 </li>
-                                        <li> Tarta de Frutas.........................................$7.800 </li>
-                                        <li> Sundae de Helado.....................................$7.800 </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        
                     </div>
                 </div>
             </div>
@@ -283,18 +128,4 @@
         </section> -->
         
         {% include 'footer.html' %}
-        		
-		<div class="scrollup">
-			<a href="#"><i class="fa fa-chevron-up"></i></a>
-		</div>		
-
-
-        <script src="{% static 'assets/js/vendor/jquery-1.11.2.min.js'%}"></script>
-        <script src="{% static 'assets/js/vendor/bootstrap.min.js'%}"></script>
-
-        <script src="{% static 'assets/js/jquery-easing/jquery.easing.1.3.js'%}"></script>
-        <script src="{% static 'assets/js/wow/wow.min.js'%}"></script>
-        <script src="{% static 'assets/js/plugins.js'%}"></script>
-        <script src="{% static 'assets/js/main.js'%}"></script>
-    </body>
-</html>
+        

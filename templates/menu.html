@@ -1,0 +1,81 @@
+{% include 'nav.html' %}
+
+<section id="ourPakeg" class="ourPakeg">
+    <div class="container">
+        <div class="main_pakeg_content">
+            <div class="row">
+                <div class="head_title text-center mt-1">
+                    <h4>Nuestra Carta</h4>
+                    <h3>Menú</h3>
+                </div>
+
+                <div class="single_pakeg_one text-right wow rotateInDownRight">
+                    <div class="col-md-6 col-md-offset-6 col-sm-8 col-sm-offset-4">
+                        <div class="single_pakeg_text">
+                            <div class="pakeg_title">
+                                <h4>Vinos</h4>
+                            </div>
+                            {%if vinos%}
+                            
+                            <ul>
+                                {% for vino in vinos %}
+                                <li> {{vino.nombre}}......................................................${{vino.precio}}</li>
+                                {% endfor %}
+                            </ul>
+                            {% else%}
+                            <div>No hay información para mostrar</div>
+                            {%endif%}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="single_pakeg_two text-left wow rotateInDownLeft">
+                    <div class="col-md-6 col-sm-8">
+                        <div class="single_pakeg_text">
+                            <div class="pakeg_title">
+                                <h4>Platos principales</h4>
+                            </div>
+
+                            {%if fondos%}
+                            
+                            <ul>
+                                {% for fondo in fondos %}
+                                <li> {{fondo.nombre}}......................................................${{fondo.precio}}</li>
+                                {% endfor %}
+                            </ul>
+                            {% else%}
+                            <div>No hay información para mostrar</div>
+                            {%endif%}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="single_pakeg_three text-left wow rotateInDownRight">
+                    <div class="col-md-6 col-md-offset-6 col-sm-8 col-sm-offset-4">
+                        <div class="single_pakeg_text">
+                            <div class="pakeg_title">
+                                <h4>Postres</h4>
+                            </div>
+                
+                            {%if postres%}
+                            
+                            <ul>
+                                {% for postre in postres %}
+                                <li> {{postre.nombre}}......................................................${{postre.precio}}</li>
+                                {% endfor %}
+                            </ul>
+                            {% else%}
+                            <div>No hay información para mostrar</div>
+                            {%endif%}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+{% include 'footer.html' %}
