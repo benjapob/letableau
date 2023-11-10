@@ -57,7 +57,6 @@ img {
     -ms-user-select: none;
     user-select: none;
     -webkit-user-drag: none;
-    user-drag: none;
 }
 
 a,
@@ -464,8 +463,6 @@ button.btn-lg {
     line-height: 1.5em;
 }
 
-}
-
 button.btn-lg:hover {
     background: #d6962c;
     color: #fff;
@@ -753,8 +750,6 @@ a.navbar-brand.our_logo {
     background: url(../images/bannerbg.jpg) center center no-repeat;
     background-size: cover;
 }
-
-.main_slider {}
 
 .main_slider .main_slider_content h1 {
     font-size: 6rem;
@@ -1139,4 +1134,9 @@ a.navbar-brand.our_logo {
     margin-left: -6px;
     text-decoration: none;
 
+}
+
+.margin-def {
+    margin-top: 160px;
+    margin-bottom: 20px;
 }

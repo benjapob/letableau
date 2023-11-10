@@ -1,4 +1,15 @@
 {% load static %}
 {% include 'nav.html'%}
 
+<div class="container margin-def">
+    <h3>Login</h3>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Login</button>
+        <a href="/register">¿No tienes una cuenta? Haz click aquí!</a>
+    </form>
+</div>
+
+
 {%include 'footer.html'%}

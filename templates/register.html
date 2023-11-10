@@ -1,4 +1,17 @@
 {% load static %}
 {% include 'nav.html'%}
 
+<div class="container margin-def">
+    <h3>Registro de usuarios</h3>
+    <form method="POST">
+    
+            {% csrf_token %}
+            {{form.as_p}}
+    
+        <button type="submit">Crear usuario</button>
+    </form>
+</div>
+
+
+
 {%include 'footer.html'%}

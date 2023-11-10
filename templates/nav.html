@@ -90,6 +90,12 @@
                                             <li><a href="/about-us">Sobre Nosotros</a></li>
                                             <li><a href="/contact">Contacto</a></li>
                                             <li><a href="/booking" class="booking">Reserva de mesa</a></li>
+                                            {% if request.user.is_authenticated %}
+                                                <p>{{ request.user.username }}</p>
+                                                <a href="/logout">Logout</a>
+                                            {% else %}
+                                                <a href="/login">Login</a>
+                                            {% endif %}
                                         </ul>
                                     </div><!-- /.navbar-collapse -->
                                 </div><!-- /.container-fluid -->
