@@ -1,16 +1,20 @@
 {% load static %}
 {% include 'nav.html'%}
-
-<div class="container margin-def">
-    <h3>Registro de usuarios</h3>
-    <form method="POST">
-    
-            {% csrf_token %}
-            {{form.as_p}}
-    
-        <button type="submit">Crear usuario</button>
-    </form>
+<div class="single_features_text">
+    <div class="container margin-def center-login">
+        {% include 'messages.html' %}
+        <h3>Registro de usuarios</h3>
+        <form method="POST">
+            <table class="table">
+                {% csrf_token %}
+                {{form}}
+            </table>
+        
+            <button type="submit" class="btn btn-info">Crear usuario</button>
+        </form>
+    </div>
 </div>
+
 
 
 

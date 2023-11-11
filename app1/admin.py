@@ -5,7 +5,12 @@ from .models import *
 
 
 class ProductoAdmin(admin.ModelAdmin):
-    pass
+    list_display = ("nombre", "codigo")
+
+
+"""@admin.display(ordering='producto_codigo', description='Código')
+    def get_code(self, obj):
+        return obj.codigo.nombre """
 
 
 class PlatoAdmin(admin.ModelAdmin):

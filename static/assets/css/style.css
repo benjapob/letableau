@@ -760,7 +760,7 @@ a.navbar-brand.our_logo {
 }
 
 .main_slider_content {
-    padding: 250px 0px 200px 0px;
+    padding: 0px 0px 200px 0px;
     width: 70%;
     margin: 0 auto;
     color: #fff;
@@ -1139,4 +1139,19 @@ a.navbar-brand.our_logo {
 .margin-def {
     margin-top: 160px;
     margin-bottom: 20px;
+}
+
+.center-login {
+
+    border-radius: 4px;
+    overflow: hidden;
+    width: 28em;
+    min-width: 300px;
+    margin: 100px auto;
+    height: auto;
+}
+
+.center-login h3,
+.center-login label {
+    color: #444444;
 }

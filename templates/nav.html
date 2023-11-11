@@ -91,10 +91,10 @@
                                             <li><a href="/contact">Contacto</a></li>
                                             <li><a href="/booking" class="booking">Reserva de mesa</a></li>
                                             {% if request.user.is_authenticated %}
-                                                <p>{{ request.user.username }}</p>
-                                                <a href="/logout">Logout</a>
+                                                <li><a></a></li>
+                                                <li><a href="/logout">{{ request.user.username }}: Cerrar Sesión</a></li>
                                             {% else %}
-                                                <a href="/login">Login</a>
+                                                <li><a href="/login">Login</a></li>
                                             {% endif %}
                                         </ul>
                                     </div><!-- /.navbar-collapse -->

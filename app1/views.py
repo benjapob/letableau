@@ -35,7 +35,10 @@ def user_login(request):
             user = authenticate(request, username=username, password=password)
             if user:
                 login(request, user)
+                messages.success(request, f"Bienvenido {username}!")
                 return redirect("/")
+            else:
+                messages.error(request, "Usuario o contraseña incorrectos")
     else:
         form = LoginForm()
     return render(request, "login.html", {"form": form})
@@ -43,6 +46,7 @@ def user_login(request):
 
 def user_logout(request):
     logout(request)
+    messages.info(request, "Sesión cerrada correctamente!")
     return redirect("/")
 
 
@@ -53,6 +57,8 @@ def register(request):
             form.save()
             messages.success(request, "Cuenta creada exitosamente!")
             return redirect("/")
+        else:
+            messages.error(request, "Usuario ya existe")
     else:
         form = UserCreationForm()
 

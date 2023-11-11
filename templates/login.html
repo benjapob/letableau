@@ -1,15 +1,18 @@
 {% load static %}
 {% include 'nav.html'%}
+<div class="single_features_text">
+    <div class="container margin-def center-login ">
+        {% include 'messages.html' %}
+        <h3>Iniciar sesión</h3>
+        <form method="POST">
+            <table class="table">
+                {% csrf_token %}
+                {{ form }}
 
-<div class="container margin-def">
-    <h3>Login</h3>
-    <form method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Login</button>
-        <a href="/register">¿No tienes una cuenta? Haz click aquí!</a>
-    </form>
+            </table>
+            <button type="submit" class="btn btn-info">Login</button>
+            <a href="/register">¿No tienes una cuenta? Haz click aquí!</a>
+        </form>
+    </div>
 </div>
-
-
 {%include 'footer.html'%}
