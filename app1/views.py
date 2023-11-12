@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .forms import UserCreationForm, LoginForm
+from .forms import SignupForm, LoginForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from .models import *
@@ -52,7 +52,7 @@ def user_logout(request):
 
 def register(request):
     if request.method == "POST":
-        form = UserCreationForm(request.POST)
+        form = SignupForm(request.POST)
         if form.is_valid():
             form.save()
             messages.success(request, "Cuenta creada exitosamente!")
@@ -60,7 +60,7 @@ def register(request):
         else:
             messages.error(request, "Usuario ya existe")
     else:
-        form = UserCreationForm()
+        form = SignupForm()
 
     return render(request, "register.html", {"form": form})
 

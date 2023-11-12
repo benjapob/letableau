@@ -54,8 +54,14 @@ class ReservaAdmin(admin.ModelAdmin):
     pass
 
 
+class DetalleInline(admin.TabularInline):
+    model = DetallePedido
+
+
 class VentaAdmin(admin.ModelAdmin):
+    inlines = [DetalleInline]
     list_display = ("fecha", "hora", "total")
+    readonly_fields = ("fecha", "hora")
 
     def get_queryset(self, request):
         if request.user.empleado.sucursal.nombre == "default sucursal":

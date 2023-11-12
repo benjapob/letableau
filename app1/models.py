@@ -26,7 +26,7 @@ class Plato(models.Model):
     nombre = models.CharField(max_length=50)
     descripcion = models.CharField(max_length=200)
     foto = models.ImageField()
-    precio = models.IntegerField()
+    precio = models.PositiveIntegerField()
     tipo = models.ForeignKey(TipoPlato, on_delete=models.PROTECT)
 
     def __str__(self):
@@ -57,15 +57,18 @@ class Sucursal(models.Model):
 class Empleado(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     telefono = models.CharField(max_length=100, blank=True, null=True)
-    fechaNac = models.DateField(blank=True, null=True)
+    fechaNac = models.DateField(
+        blank=True, null=True, verbose_name="Fecha de nacimiento"
+    )
+    rut = models.CharField(max_length=10, blank=True, null=True)
     sucursal = models.ForeignKey(
         Sucursal, on_delete=models.PROTECT, default=Sucursal.get_default_pk
     )
 
 
 class Mesa(models.Model):
-    numero = models.IntegerField()
-    capacidad = models.IntegerField()
+    numero = models.PositiveIntegerField()
+    capacidad = models.PositiveIntegerField()
     reservada = models.BooleanField()
     sucursal = models.ForeignKey(Sucursal, on_delete=models.PROTECT)
 
@@ -87,14 +90,14 @@ class Venta(models.Model):
     fecha = models.DateField(auto_now_add=True, blank=True)
     hora = models.TimeField(auto_now_add=True, blank=True)
     sucursal = models.ForeignKey(Sucursal, on_delete=models.PROTECT)
-    total = models.IntegerField()
+    total = models.PositiveIntegerField()
 
     def __str__(self):
         return f"Total: ${self.total}"
 
 
 class DetallePedido(models.Model):
-    cantidad = models.IntegerField()
+    cantidad = models.PositiveIntegerField()
     venta = models.ForeignKey(Venta, on_delete=models.PROTECT)
     plato = models.ForeignKey(Plato, on_delete=models.PROTECT)
 
