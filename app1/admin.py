@@ -1,7 +1,22 @@
 from django.contrib import admin
+from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
+from django.contrib.auth.models import User
+
+from .models import Empleado
 from .models import *
 
 # Register your models here.
+
+
+class EmpleadoInline(admin.StackedInline):
+    model = Empleado
+    can_delete = False
+    verbose_name_plural = "empleados"
+
+
+# Define a new User admin
+class UserAdmin(BaseUserAdmin):
+    inlines = (EmpleadoInline,)
 
 
 class ProductoAdmin(admin.ModelAdmin):
@@ -18,11 +33,21 @@ class PlatoAdmin(admin.ModelAdmin):
 
 
 class SucursalAdmin(admin.ModelAdmin):
-    pass
+    list_display = ("nombre", "direccion", "comuna")
 
 
 class MesaAdmin(admin.ModelAdmin):
-    pass
+    list_display = ("numero", "capacidad", "reservada", "sucursal")
+
+    def get_queryset(self, request):
+        if request.user.empleado.sucursal.nombre == "default sucursal":
+            return super().get_queryset(request)
+        else:
+            return (
+                super()
+                .get_queryset(request)
+                .filter(sucursal=request.user.empleado.sucursal)
+            )
 
 
 class ReservaAdmin(admin.ModelAdmin):
@@ -30,13 +55,35 @@ class ReservaAdmin(admin.ModelAdmin):
 
 
 class VentaAdmin(admin.ModelAdmin):
-    pass
+    list_display = ("fecha", "hora", "total")
+
+    def get_queryset(self, request):
+        if request.user.empleado.sucursal.nombre == "default sucursal":
+            return super().get_queryset(request)
+        else:
+            return (
+                super()
+                .get_queryset(request)
+                .filter(sucursal=request.user.empleado.sucursal)
+            )
 
 
 class StockAdmin(admin.ModelAdmin):
-    pass
+    list_display = ("stock", "sucursal", "producto")
+
+    def get_queryset(self, request):
+        if request.user.empleado.sucursal.nombre == "default sucursal":
+            return super().get_queryset(request)
+        else:
+            return (
+                super()
+                .get_queryset(request)
+                .filter(sucursal=request.user.empleado.sucursal)
+            )
 
 
+admin.site.unregister(User)
+admin.site.register(User, UserAdmin)
 admin.site.register(Producto, ProductoAdmin)
 admin.site.register(Plato, PlatoAdmin)
 admin.site.register(Mesa, MesaAdmin)
