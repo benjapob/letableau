@@ -38,14 +38,14 @@ class Sucursal(models.Model):
     direccion = models.CharField(max_length=100)
     comuna = models.CharField(max_length=50)
 
-    @classmethod
+    """ @classmethod
     def get_default_pk(cls):
         sucursal, created = cls.objects.get_or_create(
             nombre="default sucursal",
             direccion="default direccion",
             comuna="default comuna",
         )
-        return sucursal.pk
+        return sucursal.pk """
 
     def __str__(self):
         return f"{self.nombre}"
@@ -61,9 +61,7 @@ class Empleado(models.Model):
         blank=True, null=True, verbose_name="Fecha de nacimiento"
     )
     rut = models.CharField(max_length=10, blank=True, null=True)
-    sucursal = models.ForeignKey(
-        Sucursal, on_delete=models.PROTECT, default=Sucursal.get_default_pk
-    )
+    sucursal = models.ForeignKey(Sucursal, on_delete=models.PROTECT)
 
 
 class Mesa(models.Model):

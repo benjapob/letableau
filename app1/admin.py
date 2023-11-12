@@ -40,7 +40,7 @@ class MesaAdmin(admin.ModelAdmin):
     list_display = ("numero", "capacidad", "reservada", "sucursal")
 
     def get_queryset(self, request):
-        if request.user.empleado.sucursal.nombre == "default sucursal":
+        if request.user.is_superuser:
             return super().get_queryset(request)
         else:
             return (
@@ -64,7 +64,7 @@ class VentaAdmin(admin.ModelAdmin):
     readonly_fields = ("fecha", "hora")
 
     def get_queryset(self, request):
-        if request.user.empleado.sucursal.nombre == "default sucursal":
+        if request.user.is_superuser:
             return super().get_queryset(request)
         else:
             return (
@@ -78,7 +78,7 @@ class StockAdmin(admin.ModelAdmin):
     list_display = ("stock", "sucursal", "producto")
 
     def get_queryset(self, request):
-        if request.user.empleado.sucursal.nombre == "default sucursal":
+        if request.user.is_superuser:
             return super().get_queryset(request)
         else:
             return (
