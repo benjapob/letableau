@@ -1,4 +1,51 @@
 {% load static %}
 {% include 'nav.html'%}
 
+<div class="single_features_text">
+    <div class="container margin-def center-login">
+        <h3>Reserva una mesa</h3>
+        <div class="single_widget_form text-left">
+            
+            <form method="POST" id="formid">
+                {%csrf_token%}
+                <div class="form-group">
+                    <label for="fecha">Seleccione una fecha</label>
+                    <input name="fecha" id="fecha" data-provide="datepicker">
+                </div>
+                <div class="form-group">
+                    <label for="sucursal">Seleccione una sucursal</label>
+                    <select id="sucursal" name="sucursal">
+                        <option disabled selected="selected" value="0">--Seleccione--</option>
+                        {% if sucursales%}
+                        {% for sucursal in sucursales%}
+                        <option value="{{sucursal.id}}">{{sucursal.nombre}}</option>
+                        {% endfor %}
+                        {% endif %}
+                      </select>
+                </div>
+                {%if mesas%}
+                {% for mesa in mesas %}
+                <div class="card card-price">
+                    <div class="card-body">
+                        <div class="lead">Mesa Nº{{mesa.numero}}</div>
+                        <ul class="details">
+                        <li>Capacidad: {{mesa.capacidad}}</li>
+                        </ul>
+                        <a href="#" class="btn btn-primary btn-block buy-now">
+                        Reservar <span class="glyphicon glyphicon-triangle-right"></span>
+                        </a>
+                    </div>
+                </div>
+                    
+                {%endfor%}
+                {%endif%}
+
+                <input type="submit" value="Enviar" class="btn btn-primary">
+            </form>	
+        </div>
+    </div>
+</div>
+
+
+
 {%include 'footer.html'%}

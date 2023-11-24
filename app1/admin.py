@@ -37,7 +37,7 @@ class SucursalAdmin(admin.ModelAdmin):
 
 
 class MesaAdmin(admin.ModelAdmin):
-    list_display = ("numero", "capacidad", "reservada", "sucursal")
+    list_display = ("numero", "capacidad", "sucursal")
 
     def get_queryset(self, request):
         if request.user.is_superuser:

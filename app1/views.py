@@ -70,7 +70,15 @@ def aboutUs(request):
 
 
 def booking(request):
-    return render(request, "booking.html")
+    mesas = None
+    sucursales = Sucursal.objects.all()
+    if request.method == "POST":
+        print(request.POST.get("fecha"))
+        print(request.POST.get("sucursal"))
+        mesas = Mesa.objects.all()
+    
+
+    return render(request, "booking.html", {"mesas": mesas, "sucursales":sucursales})
 
 
 def contact(request):

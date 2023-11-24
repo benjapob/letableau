@@ -38,15 +38,6 @@ class Sucursal(models.Model):
     direccion = models.CharField(max_length=100)
     comuna = models.CharField(max_length=50)
 
-    """ @classmethod
-    def get_default_pk(cls):
-        sucursal, created = cls.objects.get_or_create(
-            nombre="default sucursal",
-            direccion="default direccion",
-            comuna="default comuna",
-        )
-        return sucursal.pk """
-
     def __str__(self):
         return f"{self.nombre}"
 
@@ -67,11 +58,13 @@ class Empleado(models.Model):
 class Mesa(models.Model):
     numero = models.PositiveIntegerField()
     capacidad = models.PositiveIntegerField()
-    reservada = models.BooleanField()
     sucursal = models.ForeignKey(Sucursal, on_delete=models.PROTECT)
 
     def __str__(self):
         return f"Mesa {self.numero} - {self.sucursal}"
+    
+class ReservaHorarios(models.Model):
+    pass
 
 
 class Reserva(models.Model):
