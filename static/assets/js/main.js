@@ -55,5 +55,12 @@ jQuery(document).ready(function ($) {
 
 	new WOW().init();
 
+	$('.datepicker').datepicker({
+		format: 'yyyy-mm-dd',
+		startDate: '0d',
+		autoclose: 'true',
+		daysOfWeekDisabled: [0]
+
+	});
 
 });

@@ -73,9 +73,17 @@ def booking(request):
     mesas = None
     sucursales = Sucursal.objects.all()
     if request.method == "POST":
-        print(request.POST.get("fecha"))
-        print(request.POST.get("sucursal"))
-        mesas = Mesa.objects.all()
+        if (request.POST.get("sucursal") and request.POST.get("fecha")):
+            reservas = Reserva.objects.filter(fecha = request.POST.get("fecha"))
+            listaMesas = []
+            for reserva in reservas:
+                listaMesas.append(reserva.mesa.id)
+            mesas = Mesa.objects.filter(sucursal=request.POST.get("sucursal")).exclude(id__in=listaMesas)
+            if not mesas:
+                messages.error(request, "No hay mesas disponibles para esa fecha")
+
+        else:
+            messages.error(request, "Por favor, ingrese datos válidos")
     
 
     return render(request, "booking.html", {"mesas": mesas, "sucursales":sucursales})
