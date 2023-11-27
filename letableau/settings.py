@@ -82,6 +82,7 @@ DATABASES = {
         "ENGINE": "django.db.backends.mysql",
         "NAME": "tableau_db",
         "USER": "root",
+        "PASSWORD": "admin",
     }
 }
 
