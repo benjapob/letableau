@@ -28,4 +28,5 @@ urlpatterns = [
     path("logout/", views.user_logout),
     path("register/", views.register),
     path("booking/", views.booking),
+    path('booking/<int:id>/<str:fecha>/<int:cantidad>', views.booking),
 ]

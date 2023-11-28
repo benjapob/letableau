@@ -69,24 +69,38 @@ def aboutUs(request):
     return render(request, "about-us.html")
 
 
-def booking(request):
-    mesas = None
-    sucursales = Sucursal.objects.all()
-    if request.method == "POST":
-        if (request.POST.get("sucursal") and request.POST.get("fecha") and request.POST.get("cantidad")):
-            reservas = Reserva.objects.filter(fecha = request.POST.get("fecha"))
-            listaMesas = []
-            for reserva in reservas:
-                listaMesas.append(reserva.mesa.id)
-            mesas = Mesa.objects.filter(sucursal=request.POST.get("sucursal"), capacidad__gte=request.POST.get("cantidad")).exclude(id__in=listaMesas)
-            if not mesas:
-                messages.error(request, "No hay mesas disponibles para esa fecha")
-        
+def booking(request, id = None, fecha=None, cantidad=None):
+    if id and fecha and cantidad:
+        mesa = Mesa.objects.filter(id = id).get()
+        if mesa:
+            reserva = Reserva.objects.create(fecha=fecha, personas=cantidad, mesa=mesa)
+            messages.success(request, "Reserva creada exitosamente!")
+            return redirect("/")
         else:
-            messages.error(request, "Por favor, ingrese datos válidos")
-    
+            messages.error(request, "Hubo un error al procesar la solicitud")
 
-    return render(request, "booking.html", {"mesas": mesas, "sucursales":sucursales})
+        
+        return render(request, "booking.html")
+    else:
+        mesas = None
+        sucursales = Sucursal.objects.all()
+        if request.method == "POST":
+            fecha = request.POST.get("fecha")
+            cantidad = request.POST.get("cantidad")
+            if (request.POST.get("sucursal") and fecha and cantidad):
+                reservas = Reserva.objects.filter(fecha = fecha)
+                listaMesas = []
+                for reserva in reservas:
+                    listaMesas.append(reserva.mesa.id)
+                mesas = Mesa.objects.filter(sucursal=request.POST.get("sucursal"), capacidad__gte=cantidad).exclude(id__in=listaMesas)
+                if not mesas:
+                    messages.error(request, "No hay mesas disponibles para esa fecha")
+            
+            else:
+                messages.error(request, "Por favor, ingrese datos válidos")
+        
+
+        return render(request, "booking.html", {"mesas": mesas, "sucursales":sucursales, "fecha":fecha, 'cantidad':cantidad})
 
 
 def contact(request):

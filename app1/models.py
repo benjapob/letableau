@@ -70,8 +70,9 @@ class ReservaHorarios(models.Model):
 class Reserva(models.Model):
     fecha = models.DateField()
     hora = models.TimeField(auto_now_add=True, blank=True)
-    estado = models.CharField(max_length=50)
+    personas = models.PositiveIntegerField()
     mesa = models.ForeignKey(Mesa, on_delete=models.PROTECT)
+    #usuario = models.ForeignKey(User, on_delete=models.PROTECT)
 
     def __str__(self):
         return f"{self.fecha} - {self.hora} - {self.mesa}"
