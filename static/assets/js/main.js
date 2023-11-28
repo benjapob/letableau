@@ -27,18 +27,23 @@ jQuery(document).ready(function ($) {
 		event.preventDefault();
 	});
 
+	if (window.location.pathname == '/') {
+		jQuery(window).scroll(function () {
+			// Index (home) page
+			var top = jQuery(document).scrollTop();
+			var height = 300;
+			//alert(batas);
 
-	jQuery(window).scroll(function () {
-		var top = jQuery(document).scrollTop();
-		var height = 300;
-		//alert(batas);
-
-		if (top > height) {
-			jQuery('.navbar-fixed-top').addClass('menu-scroll');
-		} else {
-			jQuery('.navbar-fixed-top').removeClass('menu-scroll');
-		}
-	});
+			if (top > height) {
+				jQuery('.navbar-fixed-top').addClass('menu-scroll');
+			} else {
+				jQuery('.navbar-fixed-top').removeClass('menu-scroll');
+			}
+		});
+	}
+	else {
+		jQuery('.navbar-fixed-top').addClass('menu-scroll');
+	}
 	// Scroll up 
 
 	$(window).scroll(function () {

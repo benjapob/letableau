@@ -2,8 +2,9 @@
 {% include 'nav.html'%}
 
 <div class="single_features_text">
-    <div class="container margin-def center-login">
-        {% include 'messages.html' %}
+    <div class="container ">
+        <div class="center-login">
+            {% include 'messages.html' %}
         <h3>Reserva una mesa</h3>
         <div class="single_widget_form text-left">
             
@@ -28,26 +29,31 @@
                         {% endif %}
                       </select>
                 </div>
-                {%if mesas%}
-                {% for mesa in mesas %}
-                <div class="card card-price">
-                    <div class="card-body">
-                        <div class="lead">Mesa Nº{{mesa.numero}}</div>
-                        <ul class="details">
-                        <li><h4>Capacidad: {{mesa.capacidad}}</h4></li>
-                        </ul>
-                        <a href="/booking/{{mesa.id}}/{{fecha}}/{{cantidad}}" class="btn btn-primary btn-block buy-now">
-                        Reservar <span class="glyphicon glyphicon-triangle-right"></span>
-                        </a>
-                    </div>
-                </div>
-                    
-                {%endfor%}
-                {%endif%}
-
                 <input type="submit" value="Buscar" class="btn btn-primary">
             </form>	
         </div>
+        </div>
+        
+        {%if mesas%}
+        {% for mesa in mesas %}
+        <div class="card card-price col-md-4" >
+            <div class="card-body">
+                <div class="lead">Mesa Nº{{mesa.numero}}</div>
+                <ul class="details">
+                <li><h5>Capacidad: {{mesa.capacidad}}</h5></li>
+                <li><h5>Fecha: {{fecha}}</h5></li>
+                <li><h5>Bloque de horario: 18:00 a 21:00</h5></li>
+                </ul>
+                <a href="/booking/{{mesa.id}}/{{fecha}}/{{cantidad}}" class="btn btn-primary btn-block buy-now">
+                Reservar <span class="glyphicon glyphicon-triangle-right"></span>
+                </a>
+            </div>
+        </div>
+            
+        {%endfor%}
+        {%endif%}
+
+                
     </div>
 </div>
 

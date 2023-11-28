@@ -51,7 +51,7 @@ class MesaAdmin(admin.ModelAdmin):
 
 
 class ReservaAdmin(admin.ModelAdmin):
-    pass
+    list_display = ("fecha", "mesa", "usuario", "personas")
 
 
 class DetalleInline(admin.TabularInline):
@@ -61,6 +61,7 @@ class DetalleInline(admin.TabularInline):
 class VentaAdmin(admin.ModelAdmin):
     inlines = [DetalleInline]
     list_display = ("fecha", "hora", "total")
+    list_filter = ["sucursal"]
     readonly_fields = ("fecha", "hora")
 
     def get_queryset(self, request):
