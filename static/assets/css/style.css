@@ -699,7 +699,7 @@ a.navbar-brand.our_logo {
 }
 
 .menu-scroll a.navbar-brand.our_logo {
-    top: 0px;
+    top: -16px;
 }
 
 .main_menu_bg {
