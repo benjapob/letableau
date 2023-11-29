@@ -51,6 +51,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    'django_session_timeout.middleware.SessionTimeoutMiddleware',
 ]
 
 ROOT_URLCONF = "letableau.urls"
@@ -134,3 +135,13 @@ MESSAGE_TAGS = {
     messages.ERROR: "alert-danger",
     messages.INFO: "alert-info",
 }
+
+
+SESSION_EXPIRE_SECONDS = 1200
+SESSION_TIMEOUT_REDIRECT = '/login/'
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'prueba.django.smtp'
+EMAIL_HOST_PASSWORD = 'vygxmszfecsorlxj'

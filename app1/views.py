@@ -3,12 +3,15 @@ from .forms import SignupForm, LoginForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from .models import *
+from django.core.mail import send_mail
+from django.conf import settings
 
 # Create your views here.
 
 
 def index(request):
-    return render(request, "index.html")
+    sucursales = Sucursal.objects.all()
+    return render(request, "index.html", {"sucursales": sucursales})
 
 
 def menu(request):
@@ -76,6 +79,21 @@ def booking(request, id = None, fecha=None, cantidad=None):
             usuario = request.user
             if mesa:
                 reserva = Reserva.objects.create(fecha=fecha, personas=cantidad, usuario=usuario, mesa=mesa)
+                send_mail(
+                subject='Reserva',
+                message=("Has reservado una mesa a través de Le Tableau! Aquí están los datos de tu reserva:"+
+                "\n\nNombre Completo: "+request.user.first_name+" "+request.user.last_name+
+                "\nUsuario: "+request.user.username+
+                "\n\nReserva: "+
+                "\nFecha de Reserva: "+str(fecha)+
+                "\nCantidad de Personas: "+str(cantidad)+
+                "\nBloque de Horario: "+'18:00 a 21:00'+
+                "\nSucursal: "+mesa.sucursal.nombre+
+                "\nDirección sucursal: "+mesa.sucursal.direccion+" - "+mesa.sucursal.comuna+
+                "\nMesa reservada: "+str(mesa.numero)+
+                "\n\nTe esperamos para que puedas disfutar los mejores platos en nuestras sucursales!"),
+                from_email=settings.EMAIL_HOST_USER,
+                recipient_list=[request.user.email])
                 messages.success(request, "Reserva creada exitosamente!")
                 return redirect("/")
             else:
@@ -89,12 +107,13 @@ def booking(request, id = None, fecha=None, cantidad=None):
             if request.method == "POST":
                 fecha = request.POST.get("fecha")
                 cantidad = request.POST.get("cantidad")
-                if (request.POST.get("sucursal") and fecha and cantidad):
+                sucursal = request.POST.get("sucursal")
+                if (sucursal and fecha and cantidad):
                     reservas = Reserva.objects.filter(fecha = fecha)
                     listaMesas = []
                     for reserva in reservas:
                         listaMesas.append(reserva.mesa.id)
-                    mesas = Mesa.objects.filter(sucursal=request.POST.get("sucursal"), capacidad__gte=cantidad).exclude(id__in=listaMesas)
+                    mesas = Mesa.objects.filter(sucursal=sucursal, capacidad__gte=cantidad).exclude(id__in=listaMesas)
                     if not mesas:
                         messages.error(request, "No hay mesas disponibles para esa fecha")
                 

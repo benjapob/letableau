@@ -65,8 +65,7 @@
                                             <li><a href="/contact">Contacto</a></li>
                                             <li><a href="/booking" class="booking">Reserva de mesa</a></li>
                                             {% if request.user.is_authenticated %}
-                                                <li><a></a></li>
-                                                <li><a href="/logout">{{ request.user.username }}: Cerrar Sesión</a></li>
+                                                <li><a href="/logout" style="color:#e7a331">{{ request.user.username }}: Cerrar Sesión</a></li>
                                             {% else %}
                                                 <li><a href="/login">Login</a></li>
                                             {% endif %}

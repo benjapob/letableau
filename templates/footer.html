@@ -8,9 +8,12 @@
                         <h3>Encuéntranos</h3>
 
                         <div class="single_widget_info">
-                            <p>123 Calle Principal, Santiago Centro, Región Metropolitana, Chile</p>
-                            <span>Teléfono: +56 2 123 4567</span>
-                            <span>Correo: info@letableau.cl</span>
+                            {% if sucursales %}
+                            {% for sucursal in sucursales %}
+                            <p>{{sucursal.nombre}} : {{sucursal.direccion}}, {{sucursal.comuna}}, Región Metropolitana, Chile</p>
+                            {% endfor %}
+                            {% endif %}
+                            <p>Teléfono: +56 2 123 4567 <br> Correo: info@letableau.cl</p>
                         </div>
 
                         <div class="footer_socail_icon">
