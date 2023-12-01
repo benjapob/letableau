@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 
 from .models import Empleado
 from .models import *
+from .forms import *
 
 # Register your models here.
 
@@ -88,6 +89,18 @@ class StockAdmin(admin.ModelAdmin):
                 .filter(sucursal=request.user.empleado.sucursal)
             )
 
+class CierreAdmin(admin.ModelAdmin):
+    list_display = ("fecha", "total")
+    readonly_fields = ("total",)
+    def get_queryset(self, request):
+        if request.user.is_superuser:
+            return super().get_queryset(request)
+        else:
+            return (
+                super()
+                .get_queryset(request)
+                .filter(sucursal=request.user.empleado.sucursal)
+            )
 
 admin.site.unregister(User)
 admin.site.register(User, UserAdmin)
@@ -98,3 +111,4 @@ admin.site.register(Venta, VentaAdmin)
 admin.site.register(Sucursal, SucursalAdmin)
 admin.site.register(Reserva, ReservaAdmin)
 admin.site.register(StockSucursal, StockAdmin)
+admin.site.register(CierreCaja, CierreAdmin)

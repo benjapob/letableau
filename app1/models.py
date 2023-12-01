@@ -75,7 +75,7 @@ class Reserva(models.Model):
     usuario = models.ForeignKey(User, on_delete=models.PROTECT)
 
     def __str__(self):
-        return f"{self.fecha} - {self.hora} - {self.mesa}"
+        return f"Reserva: {self.fecha}"
 
 
 class Venta(models.Model):
@@ -101,3 +101,27 @@ class StockSucursal(models.Model):
 
     class Meta:
         verbose_name_plural = "Stock sucursales"
+
+    def __str__(self):
+        return f"Stock Sucursal"    
+
+
+class CierreCaja(models.Model):
+    fecha = models.DateField(auto_now_add=True, blank=True)
+    sucursal = models.ForeignKey(Sucursal, on_delete=models.PROTECT)
+    total = models.PositiveIntegerField()
+
+    class Meta:
+        verbose_name_plural = "Cierre Cajas"
+        unique_together = ('fecha', 'sucursal',)
+
+    def save(self, *args, **kwargs):
+        ventas = Venta.objects.filter(fecha=self.fecha, sucursal_id=self.sucursal.id)
+        total = 0
+        for venta in ventas:
+            total += venta.total
+        self.total = total
+        super(CierreCaja, self).save(*args, **kwargs)
+
+    def __str__(self):
+        return f"Cierre: {self.fecha}"
