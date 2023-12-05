@@ -66,12 +66,13 @@ class Mesa(models.Model):
 class BloqueHorario(models.Model):
     nombre = models.CharField(max_length=50)
     horarioInicio = models.CharField(max_length=50)
-    horarioFinal = models.CharField(max_length=50)
+    horarioTermino = models.CharField(max_length=50)
 
 class Reserva(models.Model):
     fecha = models.DateField()
     hora = models.TimeField(auto_now_add=True, blank=True)
     personas = models.PositiveIntegerField()
+    confirmado = models.BooleanField(default=0)
     mesa = models.ForeignKey(Mesa, on_delete=models.PROTECT)
     usuario = models.ForeignKey(User, on_delete=models.PROTECT)
     bloque = models.ForeignKey(BloqueHorario, on_delete=models.PROTECT)

@@ -52,6 +52,31 @@ def user_logout(request):
     messages.info(request, "Sesión cerrada correctamente!")
     return redirect("/")
 
+def confirm(request, id):
+    reserva = Reserva.objects.filter(id=id).get()
+    if reserva:
+        reserva.confirmado = 1
+        reserva.save()
+        send_mail(
+                subject='Confirmación de reserva',
+                message=("Has confirmado la reserva de tu mesa a través de Le Tableau! Aquí están los datos de tu reserva:"+
+                "\n\nNombre Completo: "+reserva.usuario.first_name+" "+reserva.usuario.last_name+
+                "\nUsuario: "+reserva.usuario.username+
+                "\n\nReserva: "+
+                "\nFecha de Reserva: "+str(reserva.fecha)+
+                "\nCantidad de Personas: "+str(reserva.personas)+
+                "\nBloque de Horario: "+reserva.bloque.horarioInicio+" - "+reserva.bloque.horarioTermino+
+                "\nSucursal: "+reserva.mesa.sucursal.nombre+
+                "\nDirección sucursal: "+reserva.mesa.sucursal.direccion+" - "+reserva.mesa.sucursal.comuna+
+                "\nMesa reservada: "+str(reserva.mesa.numero)+
+                "\n\nTe esperamos para que puedas disfutar los mejores platos en nuestras sucursales!"),
+                from_email=settings.EMAIL_HOST_USER,
+                recipient_list=[request.user.email])
+        messages.success(request, "Reserva confirmada con éxito!")
+    else:
+        messages.error(request, "No se ha podido confirmar la reserva")
+    return redirect("/")
+
 
 def register(request):
     if request.method == "POST":
@@ -88,11 +113,12 @@ def booking(request, id = None, fecha=None, cantidad=None,bloque_id=None):
                 "\n\nReserva: "+
                 "\nFecha de Reserva: "+str(fecha)+
                 "\nCantidad de Personas: "+str(cantidad)+
-                "\nBloque de Horario: "+'18:00 a 21:00'+
+                "\nBloque de Horario: "+bloque.horarioInicio+" - "+bloque.horarioTermino+
                 "\nSucursal: "+mesa.sucursal.nombre+
                 "\nDirección sucursal: "+mesa.sucursal.direccion+" - "+mesa.sucursal.comuna+
                 "\nMesa reservada: "+str(mesa.numero)+
-                "\n\nTe esperamos para que puedas disfutar los mejores platos en nuestras sucursales!"),
+                "\n\nTe esperamos para que puedas disfutar los mejores platos en nuestras sucursales!"+
+                "\n\nConfirma tu visita y obtén una atención más rápida: http://127.0.0.1:8000/confirm/"+str(reserva.id)),
                 from_email=settings.EMAIL_HOST_USER,
                 recipient_list=[request.user.email])
                 messages.success(request, "Reserva creada exitosamente!")

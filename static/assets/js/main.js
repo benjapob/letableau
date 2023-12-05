@@ -64,7 +64,8 @@ jQuery(document).ready(function ($) {
 		format: 'yyyy-mm-dd',
 		startDate: '0d',
 		autoclose: 'true',
-		daysOfWeekDisabled: [0]
+		daysOfWeekDisabled: [0],
+		language: 'es'
 
 	});
 
