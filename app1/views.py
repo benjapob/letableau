@@ -72,13 +72,14 @@ def aboutUs(request):
     return render(request, "about-us.html")
 
 
-def booking(request, id = None, fecha=None, cantidad=None):
+def booking(request, id = None, fecha=None, cantidad=None,bloque_id=None):
     if request.user.is_authenticated:
-        if id and fecha and cantidad:
+        if id and fecha and cantidad and bloque_id:
             mesa = Mesa.objects.filter(id = id).get()
+            bloque = BloqueHorario.objects.filter(id = bloque_id).get()
             usuario = request.user
             if mesa:
-                reserva = Reserva.objects.create(fecha=fecha, personas=cantidad, usuario=usuario, mesa=mesa)
+                reserva = Reserva.objects.create(fecha=fecha, personas=cantidad, usuario=usuario, mesa=mesa, bloque=bloque)
                 send_mail(
                 subject='Reserva',
                 message=("Has reservado una mesa a través de Le Tableau! Aquí están los datos de tu reserva:"+
@@ -103,13 +104,16 @@ def booking(request, id = None, fecha=None, cantidad=None):
             return render(request, "booking.html")
         else:
             mesas = None
+            bloque = None
             sucursales = Sucursal.objects.all()
+            bloques = BloqueHorario.objects.all()
             if request.method == "POST":
                 fecha = request.POST.get("fecha")
                 cantidad = request.POST.get("cantidad")
                 sucursal = request.POST.get("sucursal")
+                bloque = BloqueHorario.objects.filter(id = request.POST.get("bloque")).get()
                 if (sucursal and fecha and cantidad):
-                    reservas = Reserva.objects.filter(fecha = fecha)
+                    reservas = Reserva.objects.filter(fecha = fecha, bloque_id = bloque.id)
                     listaMesas = []
                     for reserva in reservas:
                         listaMesas.append(reserva.mesa.id)
@@ -121,7 +125,7 @@ def booking(request, id = None, fecha=None, cantidad=None):
                     messages.error(request, "Por favor, ingrese datos válidos")
             
 
-            return render(request, "booking.html", {"mesas": mesas, "sucursales":sucursales, "fecha":fecha, 'cantidad':cantidad})
+            return render(request, "booking.html", {"mesas": mesas, "sucursales":sucursales, "fecha":fecha, 'cantidad':cantidad, 'bloques':bloques, 'bloque': bloque})
     else:
         messages.error(request, "Necesitas iniciar sesión para reservar una mesa")
         return redirect("/")

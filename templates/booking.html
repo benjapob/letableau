@@ -29,6 +29,17 @@
                         {% endif %}
                       </select>
                 </div>
+                <div class="form-group">
+                    <label for="bloque">Seleccione un bloque</label>
+                    <select id="bloque" name="bloque">
+                        <option disabled selected="selected" value="0">--Seleccione--</option>
+                        {% if bloques%}
+                        {% for bloque in bloques%}
+                        <option value="{{bloque.id}}">{{bloque.nombre}}</option>
+                        {% endfor %}
+                        {% endif %}
+                      </select>
+                </div>
                 <input type="submit" value="Buscar" class="btn btn-primary">
             </form>	
         </div>
@@ -43,9 +54,9 @@
                 <li><h5>Capacidad: {{mesa.capacidad}}</h5></li>
                 <li><h5>Fecha: {{fecha}}</h5></li>
                 <li><h5>Dirección: {{mesa.sucursal.direccion}}</h5></li>
-                <li><h5>Bloque de horario: 18:00 a 21:00</h5></li>
+                <li><h5>Bloque de horario: {{bloque.horarioInicio}} a {{bloque.horarioFinal}}</h5></li>
                 </ul>
-                <a href="/booking/{{mesa.id}}/{{fecha}}/{{cantidad}}" class="btn btn-primary btn-block buy-now">
+                <a href="/booking/{{mesa.id}}/{{fecha}}/{{cantidad}}/{{bloque.id}}" class="btn btn-primary btn-block buy-now">
                 Reservar <span class="glyphicon glyphicon-triangle-right"></span>
                 </a>
             </div>

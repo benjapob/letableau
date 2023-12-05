@@ -63,9 +63,10 @@ class Mesa(models.Model):
     def __str__(self):
         return f"Mesa {self.numero} - {self.sucursal}"
     
-class ReservaHorarios(models.Model):
-    pass
-
+class BloqueHorario(models.Model):
+    nombre = models.CharField(max_length=50)
+    horarioInicio = models.CharField(max_length=50)
+    horarioFinal = models.CharField(max_length=50)
 
 class Reserva(models.Model):
     fecha = models.DateField()
@@ -73,6 +74,7 @@ class Reserva(models.Model):
     personas = models.PositiveIntegerField()
     mesa = models.ForeignKey(Mesa, on_delete=models.PROTECT)
     usuario = models.ForeignKey(User, on_delete=models.PROTECT)
+    bloque = models.ForeignKey(BloqueHorario, on_delete=models.PROTECT)
 
     def __str__(self):
         return f"Reserva: {self.fecha}"
