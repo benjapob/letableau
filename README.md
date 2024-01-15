@@ -34,6 +34,6 @@ En el admin podrás encontrar una administración de los locales de dicho restau
 * SCSS    
   
 ## Screenshots : 
-<img src="static/img/preview/front1.jpg" height="800" width="400">
-<img src="static/img/preview/front2.png" height="800" width="400">
+<img src="static/img/preview/front1.jpg" height="400" width="800">
+<img src="static/img/preview/front2.png" height="400" width="800">
 
